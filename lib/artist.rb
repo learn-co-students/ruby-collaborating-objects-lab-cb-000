@@ -18,8 +18,8 @@ class Artist
   def self.all
     @@all
   end
-  # @@all is available to all descendants of class Artist
   # This class method allows access to the class variable @@all. @@all = []
+  # class variable @@all is available to all descendants of class Artist
   # Each descendant of class Artist will have access to @@all = []
   # Class variables are shared by all objects of a class, Instance variables belong to one object
   # A class variable (@@) is shared among the class and all of its descendants.
