@@ -18,6 +18,7 @@ class Artist
   def self.all
     @@all
   end
+  #   TEST NOTE TEST NOTE TEST NOTE TEST NOTE
   # This class method allows access to the class variable @@all. @@all = []
   # class variable @@all is available to all descendants of class Artist
   # Each descendant of class Artist will have access to @@all = []
