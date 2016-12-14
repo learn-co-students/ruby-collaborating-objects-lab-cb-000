@@ -32,19 +32,19 @@ class Artist
   # each Artist object will have its own @songs array denoting its songs.
 
   def self.find_or_create_by_name(name)
-    self.find(name) ? self.find(name) : self.create(name)
-    # if self.find(name)
-    #   return self.find(name)
-    # else
-    #   return self.create(name)
-    # end
+    # self.find(name) ? self.find(name) : self.create(name)
+    if self.find(name)
+      return self.find(name)
+    else
+      return self.create(name)
+    end
   end
   # if_this_is_a_true_value ? then_the_result_is_this : else_it_is_this
   # self.find(name) applies argument (name) to self.find(name) method
-  # thus, #self.find(name) method can run and return true or false
+  # thus, #self.find(name) method can run and return truthy or falsey
+  # in Ruby objects, any return that isn't nil or false is considered truthy and will pass to the block
   # if #self.find(name) returns true (denoting a name match), return true
   # else execute #self.create(name) class method.
-
   # class << self (plus and extra end)
     def self.find(name)
       self.all.find do |instance|
