@@ -33,7 +33,7 @@ class Artist
 
   def self.find_or_create_by_name(name)
     self.find(name) ? self.find(name) : self.create(name)
-    # if self.find(name)
+    # if self.find(name) == true
     #   return self.find(name)
     # else
     #   return self.create(name)
@@ -45,36 +45,23 @@ class Artist
   # if #self.find(name) returns true (denoting a name match), return true
   # else execute #self.create(name) class method.
 
-  # class << self (plus and extra end)
     def self.find(name)
       self.all.find do |instance|
         instance.name == name
       end
     end
-  # This is a class method.
-  # There are 3 ways to denote class methods, and this is 2nd most convetional.
-  # This way requires a shovel and another end.
-  # Look through this instance's #all method and find pre-existing name. Return true, else false.
+  # class method that
+  # Looks through this instance's #all method to find matching name. Return true for match, else false.
   # .find method looks through the @@all array. If it finds a "true" according to the code block
   # it stops and returns the finding. Else it returns nil if no match is found.
 
-  def self.create(name)
-    x = self.new(name)
-    x.save
-    return x
-  end
-  # def self.create(name)
-  #   self.new(name).tap do |instance|
-  #     instance.save
-  #   end
-  # end
-  # Class method reates new instance of Artist, then saves the "saves" the instance
-  # by pushing it to the @@all class variable array.
-  # Then it returns the Artist instance.
 
-  # .tap is a new object method that passes its object into the code block and, after the block finishes, returns the object.
-  # self.new(name) initializes a new object instance. .tap packages the instance, sending it to the @@all array via #save,
-  # while also returning the instance.
+  def self.create(name)
+    self.new(name).each do |instance|
+      instance.save
+    end
+  end
+
 
   def save
     @@all << self
