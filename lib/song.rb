@@ -7,10 +7,9 @@ class Song
 
   def self.new_by_filename(file)
     x = file.split(" - ")
-    x.first 2
-    song_name = self.new(x[1])
-    song_name.artist_name = x[0] # Artist name
-    song_name
+    song = self.new(x[1])
+    song.artist_name = x[0] # calling Song's artist_name method passing x[0] as the argument
+    song
   end
   # class methods can be called from elsewhere by, for ex. "Song.new_by_filename"
   # in this case, "Song.new_by_filename" is called in mp3_importer's #import instance method.
