@@ -1,5 +1,3 @@
-require 'pry'
-
 class Artist
 
   attr_accessor :name
@@ -31,9 +29,9 @@ class Artist
     @songs.each { |s| puts s.name }
   end
 
-  def self.find_or_create_by_name(name)
-    artist = self.all.detect{|a|a.name == name}
-    artist = Artist.new(name) if artist == nil
+  def self.find_or_create_by_name(artist_name)
+    artist = all.detect{|a|a.name == artist_name}
+    artist = Artist.new(artist_name) if artist.nil?
     artist
   end
 
