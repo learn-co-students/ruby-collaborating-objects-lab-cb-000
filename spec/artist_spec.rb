@@ -42,6 +42,14 @@ describe 'Artist' do
       artist_1 = Artist.find_or_create_by_name("Drake")
       expect(artist_1.class).to eq(Artist)
     end
+
+    it 'adds the artist instance to the @@all class variable' do
+      artist_1 = Artist.find_or_create_by_name("Drake")
+      artist_2 = Artist.find_or_create_by_name("Michael Jackson")
+      artist_3 = Artist.find_or_create_by_name("Michael Jackson")
+      artist_4 = Artist.find_or_create_by_name("Coldplay")
+      expect(Artist.all.size).to eq(3)
+    end
   end
 
   describe '#print_songs' do
