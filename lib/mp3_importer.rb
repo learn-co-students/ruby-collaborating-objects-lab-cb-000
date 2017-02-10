@@ -12,11 +12,7 @@ class MP3Importer
 
   def import
     self.files.each do |file|
-      data = file.chomp('.mp3').split(' - ')
-      artist = Artist.find_or_create_by_name(data[0])
-      song = Song.new_by_filename(file)
-      song.artist = artist
-      artist.add_song(song)
+      Song.new_by_filename(file)
     end
   end
   
