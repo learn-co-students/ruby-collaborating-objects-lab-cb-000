@@ -44,6 +44,4 @@ class Artist
     @@all.detect{|artist| artist.name == name}
   end
 
-
-
 end
