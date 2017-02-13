@@ -1,3 +1,4 @@
+require 'pry'
 class MP3Importer
   attr_reader :path
 
@@ -6,11 +7,12 @@ class MP3Importer
   end
 
   def files
-    @files ||= Dir["#{@path}/*.mp3"].collect{|f| f.gsub("#{@path}/","")}
+    Dir.entries(path).select {|file| file.end_with?(".mp3")}
   end
 
   def import
-    files.each{|f| Song.new_by_filename(f)}
+    #binding.pry
+    files.each{|file| Song.new_by_filename(file)}
   end
 
 end
