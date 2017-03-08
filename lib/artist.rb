@@ -21,11 +21,12 @@ class Artist
     self.find(name) ? self.find(name) : self.create(name)
   end
 
+# HELPER METHOD
   def self.find(name)
     self.all.find {|artist| artist.name == name }
   end
 
-
+#HELPER METHOD
   def self.create(name)
     self.new(name).tap {|artist| artist.save}
   end
