@@ -1,8 +1,6 @@
 class MP3Importer
 	attr_accessor :path
 
-	@@path =[]
-
 	@@all = []
 
 	def initialize(path)
@@ -24,14 +22,7 @@ class MP3Importer
 	end
 
 	def import
-		if (@mp3.nil?)
-			self.files
-		else
-			@mp3.each{|filename|Song.new_by_filename(filename)}
-		end
+		files.each{|f|Song.new_by_filename(f)}
 	end
 
-	def self.save
-		Artist.new(Song.artist_name)
-	end
 end
