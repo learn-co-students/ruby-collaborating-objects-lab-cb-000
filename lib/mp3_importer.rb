@@ -31,8 +31,7 @@ class MP3Importer
 		end
 	end
 
-	def self.save 
-		Song.artist_name = @artist_name
-		Artist.new(@artist_name)
+	def self.save
+		Artist.new(Song.artist_name)
 	end
 end
