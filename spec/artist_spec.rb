@@ -12,6 +12,7 @@ describe 'Artist' do
       artist.name = 'King of Pop'
       expect(artist.name).to eq('King of Pop')
     end
+
   end
 
   describe '#songs' do
