@@ -1,6 +1,6 @@
 class MP3Importer
   attr_reader :path, :files
-  @@original_path = Dir.pwd + "/"
+  @@original_path = (Dir.pwd + "/").freeze
 
   # NOTE: following logic is encapsulated in class method here, since
   #   specification requires that Song class be able to access this
