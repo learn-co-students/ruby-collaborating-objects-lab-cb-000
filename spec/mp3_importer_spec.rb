@@ -30,7 +30,7 @@ describe "MP3Importer" do
     end
   end
 
-  describe '#import' do 
+  describe '#import' do
     it 'imports the files into the library by creating songs from a filename' do
       Artist.class_variable_set("@@all",[])
       test_music_path = "./spec/fixtures/mp3s"
@@ -38,6 +38,7 @@ describe "MP3Importer" do
       music_importer.import
 
       expect(Artist.all.size).to eq(3)
+      # How to do the next one?  Expects artist array of songs to include the songs that are created.  The size of Artist is 3 so I'm just not saving the songs
       expect(Artist.all.first.songs.empty? && Artist.all.last.songs.empty?).to eq(false)
     end
   end
