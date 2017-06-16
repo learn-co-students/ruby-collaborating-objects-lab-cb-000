@@ -51,7 +51,7 @@ describe 'Artist' do
       billie_jean = Song.new('Billie Jean')
       artist.add_song(dirty_diana)
       artist.add_song(billie_jean)
-      expect{artist.print_songs}.to output('Dirty Diana\nBillie Jean\n').to_stdout
+      expect{artist.print_songs}.to output("Dirty Diana\nBillie Jean\n").to_stdout
     end
   end
 end
