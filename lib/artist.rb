@@ -21,7 +21,7 @@ class Artist
   end
 
   def print_songs
-    self.songs.each {|x| puts x.name}
+    songs.each {|x| puts x.name}
   end
 
   def find_or_create_by_name(name)
