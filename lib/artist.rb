@@ -17,19 +17,16 @@ class Artist
     @@all
   end
 
-  def self.find_or_create_by_name(name)
-    existing_artists = {}
-    @@all.each do |artist|
-      existing_artists[artist.name] = artist
-    end
+  def self.find(name)
+    self.all.find {|artist| artist.name == name}
+  end
 
-    if existing_artists.keys.include? name
-      existing_artists[name]
-    else
-      artist = Artist.new(name)
-      artist.save
-      artist
-    end
+  def self.create(name)
+    self.new(name).tap {|artist| artist.save}
+  end
+
+  def self.find_or_create_by_name(name)
+    self.find(name) ? self.find(name) : self.create(name)
   end
 
   def print_songs
