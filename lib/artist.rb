@@ -9,10 +9,6 @@ class Artist
     @@all << self
   end
 
-  def name=(name)
-    @name = name
-  end
-
   def add_song(song)
     @songs << song
   end
@@ -25,16 +21,8 @@ class Artist
     @@all
   end
 
-  def self.find_by_name(artist_name)
-    self.all.detect{|artist| artist.name == artist_name}
-  end
-
   def self.find_or_create_by_name(artist_name)
-    if self.find_by_name(artist_name)
-      self.find_by_name(artist_name)
-    else
-      Artist.new(artist_name)
-   end
+    self.all.find{|artist| artist.name == artist_name} || Artist.new(artist_name)
   end
 
   def print_songs
