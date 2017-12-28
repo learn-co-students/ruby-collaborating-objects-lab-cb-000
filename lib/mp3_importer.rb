@@ -1,26 +1,29 @@
 class MP3Importer
-  attr_reader :path
+  attr_reader :path, :files
 
   def initialize(path)
     @path = path
   end
 
   def files
-    @files = Dir.entries('./db/mp3s').reject{|entry| entry == "." || entry == ".." || !entry.end_with?(".mp3")}
+    @files = Dir.entries(@path).reject{|entry| entry == "." || entry == ".." || !entry.end_with?(".mp3")}
   end
 
   def import
+    self.files if files == nil
     @files.each do |file|
       split = file.split(" - ")
-      artist = split[0]
-      name = split[1]
+      artist_name = split[0]
+      song_name = split[1]
       genre = split[2].split(".mp3")[0]
-      Artist.new(name)
+      if Artist.all.detect {|artist| artist.name == artist_name} == nil
+        artist = Artist.new(artist_name)
+        artist.save
+      else
+        artist = Artist.all.detect {|artist| artist.name == artist_name}
+      end
+      artist.add_song(Song.new(song_name))
     end
   end
 
 end
-
-'./db/mp3s'
-
-entry = "Zoo Kid - Out Getting Ribs - hip-hop.mp3"

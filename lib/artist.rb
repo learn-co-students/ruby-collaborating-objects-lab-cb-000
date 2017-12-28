@@ -17,13 +17,18 @@ class Artist
     @@all << self
   end
 
+  def self.all
+    @@all
+  end
+
   def self.find_or_create_by_name(name)
-    if @@all.include?
-      --
+    artist = @@all.detect {|artist| artist.name == name}
+    if artist == nil
+      new_artist = Artist.new(name)
+      new_artist.save
+      return new_artist
     else
-      song = Song.new(name)
-      @songs << song
-      song
+      return artist
     end
   end
 
