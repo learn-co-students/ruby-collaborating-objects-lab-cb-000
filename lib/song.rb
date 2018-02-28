@@ -16,6 +16,7 @@ class Song
     a = x.split(" - ")
     b = Song.new(a[1])
     b.artist = Artist.find_or_create_by_name(a[0])
+    b.artist.add_song(b)
     b
   end
 
