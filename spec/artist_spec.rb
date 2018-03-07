@@ -33,6 +33,7 @@ describe 'Artist' do
 
   describe '.find_or_create_by_name' do
     it 'finds or creates an artist by name maintaining uniqueness of objects by name property' do
+      # this test needs work
       artist_1 = Artist.find_or_create_by_name("Michael Jackson")
       artist_2 = Artist.find_or_create_by_name("Michael Jackson")
       expect(artist_1).to eq(artist_2)
