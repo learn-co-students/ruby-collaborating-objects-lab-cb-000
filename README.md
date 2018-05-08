@@ -26,6 +26,7 @@ You will be building an `Artist` class, a `Song` class, and an `MP3Importer` cla
 Thinking about it this way will get us started. Let's take a deeper look.
 
 ### `MP3Importer` class
+
 Let's start with the MP3 Importer. Build an `MP3Importer` class that parses a directory of files and sends the filenames to a song class to create a library of music with artists that are unique. To do this, you'll need two methods: `MP3Importer#files` and `MP3Importer#import`. Your `MP3Importer` class should also have a `path` attribute that gets set on initialization.
 
 You should write code that responds to `MP3Importer.new('./db/mp3s').import`. Google around for how to get a list of files in a directory! Make sure you only get `.mp3` files.
@@ -43,7 +44,7 @@ This method will do four things:
 
 3. We'll also want to associate that new song with an artist. To do this we'll use a helper method: `Song#artist_name=(artist_name)`.
 
-4. Return the new song instance. 
+4. Return the new song instance.
 
 You may have seen something similar in the past where we have the instance of the artist. If we had the artist object, we could simply assign the artist to the song with some code that looks like this: `our_song_instance.artist = our_artist_instance`. Since we only have the artist name as a string (not an instance of the Artist class), we'll create a method that takes in the name and gets the artist object. Let's call this `Song#artist_name=(artist_name)`.
 
