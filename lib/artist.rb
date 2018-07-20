@@ -47,11 +47,11 @@ class Artist
     songs.each {|song| puts song.name}
   end
 
-  def self.find_or_create_by_name(name)
-    artist = @@all.select do |artist| artist.name == name end
-      binding.pry
-    artist[0] ? artist : self.new(name)
-  end
+  # def self.find_or_create_by_name(name)
+  #   artist = @@all.select do |artist| artist.name == name end
+  #     binding.pry
+  #   artist[0] ? artist : self.new(name)
+  # end
 
 
 end
