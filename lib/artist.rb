@@ -12,10 +12,7 @@ class Artist
   def initialize(name)
     @songs = []
     @name = name
-<<<<<<< HEAD
-    # @@all << self
-=======
->>>>>>> 3d6956dade336b1fc9bb1b6c6d27dd483124fe7e
+
   end
 
   def add_song(song)
@@ -27,7 +24,6 @@ class Artist
     @@all << self
   end
 
-<<<<<<< HEAD
   def self.find_or_create_by_name(name)
     artist = @@all.find do |artist| artist.name == name end
       # binding.pry
@@ -50,7 +46,7 @@ class Artist
   def print_songs
     songs.each {|song| puts song.name}
   end
-=======
+
   def self.find_or_create_by_name(name)
     artist = @@all.select do |artist| artist.name == name end
       binding.pry
@@ -58,5 +54,5 @@ class Artist
   end
 
 
->>>>>>> 3d6956dade336b1fc9bb1b6c6d27dd483124fe7e
+# >>>>>>> 3d6956dade336b1fc9bb1b6c6d27dd483124fe7e
 end
