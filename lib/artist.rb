@@ -54,5 +54,4 @@ class Artist
   end
 
 
-# >>>>>>> 3d6956dade336b1fc9bb1b6c6d27dd483124fe7e
 end
