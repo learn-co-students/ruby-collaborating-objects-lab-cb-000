@@ -41,6 +41,13 @@ describe 'Artist' do
     it 'Creates new instance of Artist if none exist' do
       artist_1 = Artist.find_or_create_by_name("Drake")
       expect(artist_1.class).to eq(Artist)
+      expect(Artist.all).to include(artist_1)
+    end
+    
+    it 'finds an artist by name' do
+      Artist.new('something').save
+      artist = Artist.find_or_create_by_name('something')
+      expect(artist.name).to eq('something')
     end
   end
 
